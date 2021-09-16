@@ -1,18 +1,18 @@
-const calcsin = (angulo) => {
-    return Math.sin((2*Math.PI*angulo)/360);
+const calcsin = (angle) => {
+    return Math.sin((2*Math.PI*angle)/360);
 }
 
-const calccos = (angulo) => {
-    return Math.cos((2*Math.PI*angulo)/360);
+const calccos = (angle) => {
+    return Math.cos((2*Math.PI*angle)/360);
 }
 
-const poligono = (n, p) => {
+const polygon = (n, p) => {
     const as = document.querySelectorAll('.wrap a');
     as.forEach((a) => {
         a.remove();
     });
 
-    const angulo = 360/n;
+    const angle = 360/n;
 
     const wrap      = document.querySelector('.wrap');
     const center    = document.createElement('a');
@@ -29,38 +29,38 @@ const poligono = (n, p) => {
     wrap.appendChild(center);
 
     for (let i=0; i<n; i++) {
-        const ponto    = document.createElement('a');
-        const pontoDiv = document.createElement('div');
+        const dot    = document.createElement('a');
+        const dotDiv = document.createElement('div');
 
-        ponto.className = 'ext';
-        ponto.appendChild(pontoDiv);
+        dot.className = 'ext';
+        dot.appendChild(dotDiv);
 
-        ponto.style.width  = p + '%';
-        ponto.style.height = p + '%';
-        ponto.style.left   = (perc + perc * calccos(i*angulo)).toString() + '%'; 
-        ponto.style.top    = (perc + perc * calcsin(i*angulo)).toString() + '%';
+        dot.style.width  = p + '%';
+        dot.style.height = p + '%';
+        dot.style.left   = (perc + perc * calccos(i*angle)).toString() + '%'; 
+        dot.style.top    = (perc + perc * calcsin(i*angle)).toString() + '%';
 
-        wrap.appendChild(ponto);
+        wrap.appendChild(dot);
     }
 
 }
 
-const lados = document.querySelector('#lados');
+const vertx = document.querySelector('#vertx');
 const perc  = document.querySelector('#perc');
 const btn   = document.querySelector('#btn');
 
 btn.addEventListener('click', (e) => {
     e.preventDefault();
 
-    n = lados.value;
+    n = vertx.value;
     p = perc.value;
 
-    poligono(n, p);
+    polygon(n, p);
 });
 
-const gira = document.querySelector('.wrap');
-let g = 0.1;
+const spin = document.querySelector('.wrap');
+let s = 0.1;
 setInterval(() => {
-    gira.style.transform = 'rotate(' + g + 'deg)';
-    g += 0.1;
+    spin.style.transform = 'rotate(' + s + 'deg)';
+    s += 0.1;
 }, 1);
