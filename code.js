@@ -49,6 +49,10 @@ const vertx = document.querySelector('#vertx');
 const perc  = document.querySelector('#perc');
 const btn   = document.querySelector('#btn');
 
+perc.addEventListener('change', () => {
+    perc.nextElementSibling.innerHTML = perc.value + '%';
+});
+
 btn.addEventListener('click', (e) => {
     e.preventDefault();
 
