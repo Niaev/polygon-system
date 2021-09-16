@@ -54,6 +54,7 @@ const perc    = document.querySelector('#perc');
 const color   = document.querySelector('#color');
 const central = document.querySelector('#central');
 const btn     = document.querySelector('#btn');
+const rotate  = document.querySelector('#rotate');
 
 perc.addEventListener('change', () => {
     perc.nextElementSibling.innerHTML = perc.value + '%';
@@ -75,8 +76,23 @@ btn.addEventListener('click', (e) => {
 });
 
 const spin = document.querySelector('.wrap');
-let s = 0.1;
-setInterval(() => {
-    spin.style.transform = 'rotate(' + s + 'deg)';
-    s += 0.1;
-}, 1);
+let s = 0.1
+let spinInterval = 0;
+const doRotate = () => {
+    if (rotate.checked) {
+        spinInterval = setInterval(() => {
+            spin.style.transform = 'rotate(' + s + 'deg)';
+            s += 0.1;
+        }, 1);
+    }
+}
+doRotate();
+
+rotate.addEventListener('change', () => {
+    doRotate();
+    if (!rotate.checked) {
+        spin.style.transform = 'rotate(0deg)';
+        s = 0.1;
+        clearInterval(spinInterval);
+    }
+});
