@@ -6,34 +6,36 @@ const calccos = (angle) => {
     return Math.cos((2*Math.PI*angle)/360);
 }
 
-const polygon = (n, p, c) => {
+const polygon = (n, p, color, c) => {
     const as = document.querySelectorAll('.wrap a');
     as.forEach((a) => {
         a.remove();
     });
 
     const angle = 360/n;
-
-    const wrap      = document.querySelector('.wrap');
-    const center    = document.createElement('a');
-    const centerDiv = document.createElement('div');
+    const perc  = (100 - p) / 2;
     
-    const perc = (100 - p) / 2;
+    const wrap = document.querySelector('.wrap');
+    
+    if (c) {
+        const center    = document.createElement('a');
+        const centerDiv = document.createElement('div');
 
-    centerDiv.style.backgroundColor = c;
-    center.appendChild(centerDiv);
-    center.style.width  = p + '%';
-    center.style.height = p + '%';
-    center.style.top    = perc + '%';
-    center.style.left   = perc + '%';
+        centerDiv.style.backgroundColor = color;
+        center.appendChild(centerDiv);
+        center.style.width  = p + '%';
+        center.style.height = p + '%';
+        center.style.top    = perc + '%';
+        center.style.left   = perc + '%';
 
-    wrap.appendChild(center);
+        wrap.appendChild(center);
+    }
 
     for (let i=0; i<n; i++) {
         const dot    = document.createElement('a');
         const dotDiv = document.createElement('div');
 
-        dotDiv.style.backgroundColor = c;
+        dotDiv.style.backgroundColor = color;
         dot.className = 'ext';
         dot.appendChild(dotDiv);
 
@@ -47,10 +49,11 @@ const polygon = (n, p, c) => {
 
 }
 
-const vertx = document.querySelector('#vertx');
-const perc  = document.querySelector('#perc');
-const color = document.querySelector('#color');
-const btn   = document.querySelector('#btn');
+const vertx   = document.querySelector('#vertx');
+const perc    = document.querySelector('#perc');
+const color   = document.querySelector('#color');
+const central = document.querySelector('#central');
+const btn     = document.querySelector('#btn');
 
 perc.addEventListener('change', () => {
     perc.nextElementSibling.innerHTML = perc.value + '%';
@@ -66,7 +69,8 @@ btn.addEventListener('click', (e) => {
     polygon(
         vertx.value,
         perc.value,
-        color.value
+        color.value,
+        central.checked
     );
 });
 
