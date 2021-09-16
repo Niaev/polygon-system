@@ -47,6 +47,8 @@ const polygon = (n, p, color, c) => {
         wrap.appendChild(dot);
     }
 
+    ta.value = wrap.outerHTML;
+
 }
 
 const vertx   = document.querySelector('#vertx');
@@ -55,6 +57,9 @@ const color   = document.querySelector('#color');
 const central = document.querySelector('#central');
 const btn     = document.querySelector('#btn');
 const rotate  = document.querySelector('#rotate');
+const ta      = document.querySelector('.copy textarea');
+
+ta.value = '';
 
 perc.addEventListener('change', () => {
     perc.nextElementSibling.innerHTML = perc.value + '%';

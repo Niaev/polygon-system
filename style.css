@@ -1,1 +1,16 @@
 body,html{margin:0;padding:0;height:100%;}
+
+.copy {
+    margin: 0 auto;
+    margin-bottom: 50px;
+    min-width: 700px;
+    max-width: 700px;
+}
+.copy textarea {
+    min-width: 100%;
+    max-width: 100%;
+    min-height: 500px;
+    padding: .375rem .75rem;
+    border: 1px solid #cccccc;
+    border-radius: .25rem;
+}
