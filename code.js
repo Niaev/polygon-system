@@ -6,7 +6,7 @@ const calccos = (angle) => {
     return Math.cos((2*Math.PI*angle)/360);
 }
 
-const polygon = (n, p) => {
+const polygon = (n, p, c) => {
     const as = document.querySelectorAll('.wrap a');
     as.forEach((a) => {
         a.remove();
@@ -20,6 +20,7 @@ const polygon = (n, p) => {
     
     const perc = (100 - p) / 2;
 
+    centerDiv.style.backgroundColor = c;
     center.appendChild(centerDiv);
     center.style.width  = p + '%';
     center.style.height = p + '%';
@@ -32,6 +33,7 @@ const polygon = (n, p) => {
         const dot    = document.createElement('a');
         const dotDiv = document.createElement('div');
 
+        dotDiv.style.backgroundColor = c;
         dot.className = 'ext';
         dot.appendChild(dotDiv);
 
@@ -47,6 +49,7 @@ const polygon = (n, p) => {
 
 const vertx = document.querySelector('#vertx');
 const perc  = document.querySelector('#perc');
+const color = document.querySelector('#color');
 const btn   = document.querySelector('#btn');
 
 perc.addEventListener('change', () => {
@@ -56,10 +59,15 @@ perc.addEventListener('change', () => {
 btn.addEventListener('click', (e) => {
     e.preventDefault();
 
-    n = vertx.value;
-    p = perc.value;
+    let c = '#ffbaba';
+    const regex = /^#[0-9A-F]{6}$/i.test(color.value);
+    if (!regex) { color.value = c }
 
-    polygon(n, p);
+    polygon(
+        vertx.value,
+        perc.value,
+        color.value
+    );
 });
 
 const spin = document.querySelector('.wrap');
