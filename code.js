@@ -41,8 +41,8 @@ const polygon = (n, p, color, c) => {
 
         dot.style.width  = p + '%';
         dot.style.height = p + '%';
-        dot.style.left   = (perc + perc * calccos(i*angle)).toString() + '%'; 
-        dot.style.top    = (perc + perc * calcsin(i*angle)).toString() + '%';
+        dot.style.left   = (perc + perc * calccos(i*angle - 90)).toString() + '%'; 
+        dot.style.top    = (perc + perc * calcsin(i*angle - 90)).toString() + '%';
 
         wrap.appendChild(dot);
     }
