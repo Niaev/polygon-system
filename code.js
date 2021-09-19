@@ -48,6 +48,10 @@ const polygon = (n, p, color, c) => {
     }
 }
 
+const copyclip = (elem) => {
+    navigator.clipboard.writeText(elem.value);
+}
+
 const vertx   = document.querySelector('#vertx');
 const perc    = document.querySelector('#perc');
 const color   = document.querySelector('#color');
@@ -55,7 +59,9 @@ const central = document.querySelector('#central');
 const btn     = document.querySelector('#btn');
 const rotate  = document.querySelector('#rotate');
 const taHtml  = document.querySelector('.copy #html');
-const taCss   = document.querySelector('.copy #css')
+const cpHtml  = document.querySelector('.copy #copyHtml');
+const taCss   = document.querySelector('.copy #css');
+const cpCss   = document.querySelector('.copy #copyCss');
 
 taHtml.value = '';
 taCss.value = '';
@@ -103,8 +109,7 @@ btn.addEventListener('click', (e) => {
     height:100%;
     border-radius:inherit;
     background-color: ${color.value};
-}
-    `;
+}`;
     taCss.value = cssText;
 });
 
@@ -128,4 +133,12 @@ rotate.addEventListener('change', () => {
         s = 0.1;
         clearInterval(spinInterval);
     }
+});
+
+cpHtml.addEventListener('click', () => {
+    copyclip(taHtml);
+});
+
+cpCss.addEventListener('click', () => {
+    copyclip(taCss);
 });
