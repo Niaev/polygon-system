@@ -46,9 +46,6 @@ const polygon = (n, p, color, c) => {
 
         wrap.appendChild(dot);
     }
-
-    ta.value = wrap.outerHTML;
-
 }
 
 const vertx   = document.querySelector('#vertx');
@@ -57,9 +54,11 @@ const color   = document.querySelector('#color');
 const central = document.querySelector('#central');
 const btn     = document.querySelector('#btn');
 const rotate  = document.querySelector('#rotate');
-const ta      = document.querySelector('.copy textarea');
+const taHtml  = document.querySelector('.copy #html');
+const taCss   = document.querySelector('.copy #css')
 
-ta.value = '';
+taHtml.value = '';
+taCss.value = '';
 
 perc.addEventListener('change', () => {
     perc.nextElementSibling.innerHTML = perc.value + '%';
@@ -78,6 +77,35 @@ btn.addEventListener('click', (e) => {
         color.value,
         central.checked
     );
+
+    const wrap = document.querySelector('.wrap');
+
+    let htmlText = wrap.outerHTML;
+    htmlText = htmlText.replaceAll('class="ext"','');
+    htmlText = htmlText.replaceAll(`width: ${perc.value}%; height: ${perc.value}%; `, '');
+    htmlText = htmlText.replaceAll(/style="background-color: rgb\(\d{1,3}, \d{1,3}, \d{1,3}\);"/g,'');
+    htmlText = htmlText.replace(/style="transform: rotate\(.*\);"/g, '');
+    taHtml.value = htmlText;
+
+    let cssText = `.wrap{
+    position:relative;
+    width:700px; height:700px;
+    margin:0 auto;
+}
+.wrap a{
+    position:absolute;
+    left:0; top:0;
+    border-radius:50%;
+    width: ${perc.value}%;
+    height: ${perc.value}%;
+}
+.wrap a div{
+    height:100%;
+    border-radius:inherit;
+    background-color: ${color.value};
+}
+    `;
+    taCss.value = cssText;
 });
 
 const spin = document.querySelector('.wrap');
