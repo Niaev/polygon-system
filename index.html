@@ -10,40 +10,55 @@
         <script>hljs.highlightAll();</script>
     </head>
     <body>
-        <div>
-            <label>Number of vertexes:</label>
-            <input type="number" id="vertx" value="5">
-            <br><br>
-            <label>Dot size:</label>
-            <input type="range" id="perc" min="1" max="33" value="20"><label>20%</label>
-            <br><br>
-            <label>Dot color:</label>
-            <input type="text" id="color" value="#ffbaba" maxlength="7">
-            <br><br>
-            <input type="checkbox" id="central" checked>
-            <label>Central dot</label>
-            <br><br>
-            <input type="submit" id="btn" value="Ok">
-            <br><br>
-            <input type="checkbox" id="rotate" checked title="just to look cool">
-            <label>Rotate</label>
-        </div>
-        <br>
-        <div class="wrap"></div>
-        <br><br>
-        <div class="copy">
-            <label>HTML</label><input type="submit" id="copyHtml" value="Copy to clipboard">
-            <pre>
-                <pre class="hidden"></pre>
-                <code class="html" id="html">
-                </code>
-            </pre>
 
-            <label>CSS</label><input type="submit" id="copyCss" value="Copy to clipboard">
-            <pre>
-                <pre class="hidden"></pre>
-                <code class="css" id="css"></code>
-            </pre>
+        <div class="nav">
+            <h1>Polygon System</h1>
+        </div>
+
+        <div class="main-content container">
+            <div class="row">
+                <div class="col form-input">
+                    <label>Number of vertexes:</label>
+                    <input type="number" id="vertx" value="5">
+                    <br><br>
+                    <label>Dot size:</label>
+                    <input type="range" id="perc" min="1" max="33" value="20"><label>20%</label>
+                    <br><br>
+                    <input type="submit" id="btn" value="Ok">
+                </div>
+                <div class="col form-input">
+                    <label>Dot color:</label>
+                    <input type="text" id="color" value="#ffbaba" maxlength="7">
+                    <br><br>
+                    <input type="checkbox" id="central" checked>
+                    <label>Central dot</label>
+                </div>
+            </div>
+            <div class="row form-input">
+                <input type="checkbox" id="rotate" checked title="just to look cool">
+                <label>Rotate</label>
+            </div>
+
+            <br>
+
+            <div class="wrap"></div>
+
+            <br><br>
+
+            <div class="copy">
+                <label>HTML</label><input type="submit" id="copyHtml" value="Copy to clipboard">
+                <pre>
+                    <pre class="hidden"></pre>
+                    <code class="html" id="html">
+                    </code>
+                </pre>
+    
+                <label>CSS</label><input type="submit" id="copyCss" value="Copy to clipboard">
+                <pre>
+                    <pre class="hidden"></pre>
+                    <code class="css" id="css"></code>
+                </pre>
+            </div>
         </div>
 
         <script src="code.js"></script>

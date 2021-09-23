@@ -1,4 +1,120 @@
-body,html{margin:0;padding:0;height:100%;}
+/* --- GENERAL ----------*/
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: arial;
+}
+
+.main-content {
+    padding-bottom: 100px;
+}
+
+input[type="submit"] {
+    border: none;
+    border-radius: .25rem;
+    padding: 7px;
+    margin: 5px;
+    background-color: #007bff;
+    color: #ffffff;
+    font-size: inherit;
+    transition: background-color 0.2s ease-in-out;
+}
+input[type="submit"]:hover {
+    background-color: #0087ff;
+}
+
+/* --- GRID ---------- */
+
+.container {
+    margin: 0 auto;
+    width: 70%;
+    padding: 50px 0;
+}
+
+.row {
+    display: table;
+    width: 100%;
+}
+
+.col {
+    display: table-cell;
+    width: 50%;
+    margin: 0 auto;
+}
+
+/* --- NAV ---------- */
+
+.nav {
+    padding: 20px;
+    background-color: #1e1e1e;
+    margin-bottom: 50px;
+}
+.nav * {
+    display: inline;
+}
+.nav h1, .nav h3 {
+    color: #dcdcdc;
+    margin-right: 10px;
+}
+.nav a {
+    float: right;
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin: 0;
+    height: 71px;
+    transition: all 0.2s ease-in-out;
+}
+.nav a img {
+    height: 100%;
+}
+.nav a:hover {
+    opacity: 0.5;
+}
+
+/* --- FOOT ---------- */
+
+.foot {
+    position: absolute;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 20px;
+    background-color: #1e1e1e;
+    text-align: center;
+    color: #dcdcdc;
+}
+.foot a {
+    text-decoration: none;
+    right: 0;
+    text-align: center;
+}
+.foot a img {
+    width: 30px;
+}
+
+/* --- FORM INPUT ---------- */
+
+.form-input {
+    margin-top: 30px;    
+}
+.form-input input[type="number"], .form-input input[type="text"]{ 
+    margin: 5px;
+    border: 1px solid #ced4da;
+    border-radius: 3px;
+    padding: 7px;
+    transition: all 0.2s ease-in-out;
+}
+.form-input input[type="number"]:focus, .form-input input[type="text"]:focus {
+    border: 1px solid #0099ff;
+}
+.form-input input[type="submit"] {
+    min-width: 40px;
+    width: 10%;
+}
+
+/* --- COPY AREA ---------- */
 
 .copy {
     margin: 0 auto;
@@ -27,7 +143,6 @@ body,html{margin:0;padding:0;height:100%;}
     max-width: 100%;
     border-radius: .25rem;
 }
-
 .copy input[type="submit"] {
     margin-left: 10px;
 }
