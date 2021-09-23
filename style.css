@@ -15,6 +15,18 @@ body,html{margin:0;padding:0;height:100%;}
     border: 1px solid #cccccc;
     border-radius: .25rem;
 }
+.copy pre.hidden {
+    display: none;
+}
+.copy pre {
+    max-width: 100%;
+    white-space: pre-wrap;
+    white-space: -moz-pre-wrap;
+}
+.copy pre code {
+    max-width: 100%;
+    border-radius: .25rem;
+}
 
 .copy input[type="submit"] {
     margin-left: 10px;

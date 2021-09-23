@@ -49,7 +49,10 @@ const polygon = (n, p, color, c) => {
 }
 
 const copyclip = (elem) => {
-    navigator.clipboard.writeText(elem.value);
+    let txt = elem.innerHTML;
+    txt = txt.replaceAll('&lt;','<');
+    txt = txt.replaceAll('&gt;','>');
+    navigator.clipboard.writeText(txt);
 }
 
 const vertx   = document.querySelector('#vertx');
@@ -62,9 +65,6 @@ const taHtml  = document.querySelector('.copy #html');
 const cpHtml  = document.querySelector('.copy #copyHtml');
 const taCss   = document.querySelector('.copy #css');
 const cpCss   = document.querySelector('.copy #copyCss');
-
-taHtml.value = '';
-taCss.value = '';
 
 perc.addEventListener('change', () => {
     perc.nextElementSibling.innerHTML = perc.value + '%';
@@ -91,7 +91,11 @@ btn.addEventListener('click', (e) => {
     htmlText = htmlText.replaceAll(`width: ${perc.value}%; height: ${perc.value}%; `, '');
     htmlText = htmlText.replaceAll(/style="background-color: rgb\(\d{1,3}, \d{1,3}, \d{1,3}\);"/g,'');
     htmlText = htmlText.replace(/style="transform: rotate\(.*\);"/g, '');
-    taHtml.value = htmlText;
+    htmlText = htmlText.replaceAll('<','&lt;');
+    htmlText = htmlText.replaceAll('>','&gt;');
+    taHtml.innerHTML = htmlText;
+    taHtml.previousElementSibling.innerHTML = htmlText;
+    hljs.highlightElement(taHtml);
 
     let cssText = `.wrap{
     position:relative;
@@ -110,7 +114,9 @@ btn.addEventListener('click', (e) => {
     border-radius:inherit;
     background-color: ${color.value};
 }`;
-    taCss.value = cssText;
+    taCss.innerHTML = cssText;
+    taCss.previousElementSibling.innerHTML = cssText;
+    hljs.highlightElement(taCss);
 });
 
 const spin = document.querySelector('.wrap');
@@ -136,9 +142,9 @@ rotate.addEventListener('change', () => {
 });
 
 cpHtml.addEventListener('click', () => {
-    copyclip(taHtml);
+    copyclip(taHtml.previousElementSibling);
 });
 
 cpCss.addEventListener('click', () => {
-    copyclip(taCss);
+    copyclip(taCss.previousElementSibling);
 });

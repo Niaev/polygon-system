@@ -2,8 +2,12 @@
 <html>
     <head>
         <title>Polygon System</title>
+        <meta charset="utf-8">
         <link rel="stylesheet" href="polygon-style.css">
         <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="github-dark.min.css">
+        <script src="highlight.min.js"></script>
+        <script>hljs.highlightAll();</script>
     </head>
     <body>
         <div>
@@ -29,9 +33,17 @@
         <br><br>
         <div class="copy">
             <label>HTML</label><input type="submit" id="copyHtml" value="Copy to clipboard">
-            <textarea id="html" disabled=""></textarea>
+            <pre>
+                <pre class="hidden"></pre>
+                <code class="html" id="html">
+                </code>
+            </pre>
+
             <label>CSS</label><input type="submit" id="copyCss" value="Copy to clipboard">
-            <textarea id="css" disabled=""></textarea>
+            <pre>
+                <pre class="hidden"></pre>
+                <code class="css" id="css"></code>
+            </pre>
         </div>
 
         <script src="code.js"></script>
