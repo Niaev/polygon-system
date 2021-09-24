@@ -1,7 +1,7 @@
 # Polygon System
 
-<p align="center" style="max-width: 70%">
-    <img src="src/img/polygon-system-demo.gif">
+<p align="center">
+    <img width="600" src="src/img/polygon-system-demo.gif">
 </p>
 
 A very simple web app to draw the vertices of a given regular polygon with HTML and CSS. The sizing and coloring of the drawing are customizable.
