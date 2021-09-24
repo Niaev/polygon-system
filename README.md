@@ -1,6 +1,6 @@
 # Polygon System
 
-<p align="center">
+<p align="center" style="max-width: 70%">
     <img src="src/img/polygon-system-demo.gif">
 </p>
 
